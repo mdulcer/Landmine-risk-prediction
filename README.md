@@ -1,6 +1,8 @@
-# Landmine-risk-prediction
+# RELand: Risk Estimation of Landmines via Interpretable Invariant Risk Minimization
 
-Repo of RELand.
+### Mateo Dulce Rubio*, Siqi Zeng*, Qi Wang, Didier Alvarado, Francisco Moreno, Hoda Heidari, and Fei Fang
+
+This repository contains all the instructions to replicate the results of the paper ["RELand: Risk Estimation of Landmines via Interpretable Invariant Risk Minimization"](https://dl.acm.org/doi/pdf/10.1145/3648437)
 
 # Requirements
 
