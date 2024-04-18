@@ -36,3 +36,26 @@ def mean_height(y_truth, y_pred):
     proba_diff = (pos[:,None] - neg[None,:])
     proba_indicator = np.sum(proba_diff <= 0, axis=0) # pos
     return np.mean(proba_indicator)
+
+def max_reverse_height(y_truth, y_pred):    
+    y_pred = np.array(y_pred)
+    y_truth = np.array(y_truth).astype(np.uint8)
+    pos = y_pred[y_truth == 1]
+    neg = y_pred[y_truth == 0] 
+    proba_diff = (pos[:,None] - neg[None,:]) # pos*neg
+    proba_indicator = np.sum(proba_diff <= 0, axis=1) # neg
+    return np.max(proba_indicator) # the smaller the better
+
+def max_height(y_truth, y_pred):
+    y_pred = np.array(y_pred)
+    y_truth = np.array(y_truth).astype(np.uint8)
+    pos = y_pred[y_truth == 1]
+    neg = y_pred[y_truth == 0] 
+    proba_diff = (pos[:,None] - neg[None,:])
+    proba_indicator = np.sum(proba_diff <= 0, axis=0) # pos
+    return np.max(proba_indicator)
+
+def precision_at_x(y_true, y_pred, xth):
+    y_pred = np.array(y_pred)
+    y_true = np.array(y_true).astype(np.uint8)
+    return np.mean(y_true[np.argsort(y_pred)][-xth:]) # "How many flagged cells are relevant?" (proportion) 
